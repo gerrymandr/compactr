@@ -1,2 +1,8 @@
 # compactr
-Pure-R compactness scores for district shapes
+
+Compactness scores in R for district shapes
+
+Package dependencies
+
+* sf
+* lwgeom (for Minimum Bounding Circle)

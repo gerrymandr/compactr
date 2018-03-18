@@ -1,6 +1,6 @@
 #' Shape index compactness measures.
 #' 
-#' A shape index measures expresses a ratio of area to perimeter. It is scaled
+#' A shape index expresses a ratio of area to perimeter. It is scaled
 #' so that the most compact shape, a circle, has a score of 1,
 #' with less compact shapes declining toward 0. Two commonly used measures
 #' are Polsby-Popper and Schwartzberg. Polsby-Popper is conceptualized as the 
