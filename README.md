@@ -16,7 +16,9 @@ are Polsby-Popper and Schwartzberg. Polsby-Popper is conceptualized as the
 ratio of the area of the district to the area of a circle with an equal
 circumference. It is calculated as:
 
-\deqn{\frac{4 \pi Area }{Perimeter^{2} } }
+<!--\deqn{\frac{4 \pi Area }{Perimeter^{2} } }-->
+
+![Polsby-Popper formula](images/polsby-popper-formula.png)
 
 Schwartzberg is conceptualized as the ratio of the perimeter of the district
 to the circumference of a circle with an equal area. Although the formula
