@@ -11,8 +11,11 @@
 #' 
 #' Schwartzberg is conceptualized as the ratio of the perimeter of the district
 #' to the circumference of a circle with an equal area. Although the formula
-#' is usually expressed distinctly, it is equivalent to the square root of 
-#' Polsby-Popper, and that is how it is calculated in this function.
+#' is usually expressed distinctly, it is equivalent to the inverse square root of 
+#' Polsby-Popper, and that is how it is calculated in this function. As many
+#' compactness measures are scaled from 0 (low compactness) to 1 (high compactness),
+#' the Schwartzberg measure is often reported in its inverse form, and is provided
+#' here as the function inv_schwartzberg.
 #' 
 #' Shape indexes will be lower for
 #' "skinny" shapes, those that are wider in one direction than another. The 
@@ -40,6 +43,11 @@ polsby_popper = function(poly1) {
 
 #' @rdname shape_index
 schwartzberg = function(poly1) {
+  return(polsby_popper(poly1)^-0.5)
+}
+
+#' @rdname shape_index
+inv_schwartzberg = function(poly1) {
   return(polsby_popper(poly1)^0.5)
 }
 
