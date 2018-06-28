@@ -24,8 +24,8 @@ sfCdPa %>%
     polsby_popper_geodetic = polsby_popper(geometry),
     polsby_popper_euclidean = polsby_popper(st_set_crs(geometry, 32601)),
     polsby_popper_error = (polsby_popper_euclidean - polsby_popper_geodetic) / polsby_popper_geodetic,
-    schwartzberg_geodetic = polsby_popper(geometry),
-    schwartzberg_euclidean = polsby_popper(st_set_crs(geometry, 32601)),
+    schwartzberg_geodetic = schwartzberg(geometry),
+    schwartzberg_euclidean = schwartzberg(st_set_crs(geometry, 32601)),
     schwartzberg_error = (schwartzberg_euclidean - schwartzberg_geodetic) / schwartzberg_geodetic
   ) %>%
   as.data.frame() %>%
