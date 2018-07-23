@@ -31,14 +31,14 @@ crsPaDep = "+proj=aea +lat_1=40 +lat_2=42 +lat_0=39 +lon_0=-78 +x_0=0 +y_0=0 +el
 # However, Reock calculated on lat-long coordinates is wildly incorrect, 
 # because the minimum bounding circle algorithm treats lat-long coordinates
 # as planar.
-sfCdPa %>%
+dfReockError = sfCdPa %>%
   select(District_N) %>%
   mutate(
     reock_equal_area = reock(st_transform(geometry, crsPaDep)),
     reock_mercator = reock(st_transform(geometry, 3395)),
-    merc_ea_diff = (reock_mercator - reock_equal_area) / reock_equal_area,
+    merc_ea_diff = reock_mercator - reock_equal_area,
     reock_lat_long = reock(st_transform(geometry, 4269)),
-    gcs_ea_diff = (reock_lat_long - reock_equal_area) / reock_equal_area
+    gcs_ea_diff = reock_lat_long - reock_equal_area
     ) %>%
   as.data.frame() %>%
   select(-geometry)

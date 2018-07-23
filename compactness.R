@@ -37,8 +37,9 @@ NULL
 
 #' @rdname shape_index
 polsby_popper = function(poly1) {
-  require(sf)
-  return(4 * pi * st_area(poly1) / st_length(st_boundary(poly1))^2)
+  require(sf, quietly = TRUE)
+  require(units, quietly = TRUE)
+  return(drop_units(4 * pi * st_area(poly1) / st_length(st_boundary(poly1))^2))
 }
 
 #' @rdname shape_index
@@ -86,21 +87,23 @@ NULL
 
 #' @rdname area_compactness
 area_convex_hull = function(poly1, ch = NULL) {
-  require(sf)
+  require(sf, quietly = TRUE)
+  require(units, quietly = TRUE)
   if (is.null(ch)) {
     ch = st_convex_hull(poly1$geometry)
   }
-  return(st_area(poly1) / st_area(ch))
+  return(drop_units(st_area(poly1) / st_area(ch)))
 }
 
 #' @rdname area_compactness
 reock = function(poly1, mbc = NULL) {
-  require(sf)
+  require(sf, quietly = TRUE)
+  require(units, quietly = TRUE)
   if (is.null(mbc)) {
-    require(lwgeom)
+    require(lwgeom, quietly = TRUE)
     mbc = st_minimum_bounding_circle(st_convex_hull(st_geometry(poly1)))
   }
   
-  return(st_area(poly1) / st_area(mbc))
+  return(drop_units(st_area(poly1) / st_area(mbc)))
 }
 
