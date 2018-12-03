@@ -90,7 +90,7 @@ area_convex_hull = function(poly1, ch = NULL) {
   require(sf, quietly = TRUE)
   require(units, quietly = TRUE)
   if (is.null(ch)) {
-    ch = st_convex_hull(poly1$geometry)
+    ch = st_convex_hull(st_geometry(poly1))
   }
   return(drop_units(st_area(poly1) / st_area(ch)))
 }

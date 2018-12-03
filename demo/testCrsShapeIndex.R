@@ -28,5 +28,4 @@ sfCdPa %>%
     schwartzberg_euclidean = schwartzberg(st_set_crs(geometry, 32601)),
     schwartzberg_error = (schwartzberg_euclidean - schwartzberg_geodetic) / schwartzberg_geodetic
   ) %>%
-  as.data.frame() %>%
-  select(-geometry)
+ st_set_geometry(NULL)
